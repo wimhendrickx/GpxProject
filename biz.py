@@ -16,6 +16,15 @@ class TrackPoint:
     def __repr__(self):
         return 'lat: ' + self.lat + ' lon: ' + self.lon
         
+    def getLat(self):
+        return self.lat
+    
+    def getLon(self):
+        return self.lon
+        
+    def getEle(self):
+        return self.ele
+        
 class Track:
     tracks = []
     
