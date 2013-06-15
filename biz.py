@@ -26,11 +26,10 @@ class TrackPoint:
         return self.ele
         
 class Track:
-    tracks = []
     
     def __init__(self):
-        tracks = []
-    
+        self.tracks = []
+        
     def addTrackPoint(self, t):
         self.tracks.append(t)
         
@@ -45,6 +44,12 @@ class Track:
     def printTrack(self):
         print self.tracks
     
+    def getMaximumLat(self):
+        max = -90
+        for item in self.tracks:
+            if item.getLat() > max:
+                max = item.getLat()
+        return max
 
     
     

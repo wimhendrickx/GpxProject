@@ -10,16 +10,24 @@ class Test_Track(unittest.TestCase):
     def test_init(self):
         pass
         
-    def test_no_file_loading(self):
-        tt = Track()
-        tt.printTrack()
-        self.assertEqual(tt.getAmount(), 0)
+    def test_without_file(self):
+        t = Track()
+        self.assertEqual(t.getAmount(), 0)
         
-    def test_3_tp(self):
+    def test_file_3_tp(self):
         t = Track()
         t.getTrackFromFile("gpx/3tp.gpx")
         self.assertEqual(t.getAmount(), 3)
 
+    def test_max_lat_1(self):
+        t = Track()
+        t.addTrackPoint(TrackPoint(1, 1, 1))
+        t.addTrackPoint(TrackPoint(100, 1, 1))
+        t.addTrackPoint(TrackPoint(95, 1, 1))
+        t.addTrackPoint(TrackPoint(-4, 1, 1))
+        t.addTrackPoint(TrackPoint(101, 1, 1))
+        self.assertEqual(t.getMaximumLat(), 101)
+        
 class Test_TrackPoint(unittest.TestCase):
     def test_init(self):
         pass
